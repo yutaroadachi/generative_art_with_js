@@ -7,8 +7,6 @@
     <script>
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
-      ctx.fillStyle = "#FF0000";
-      ctx.fillRect(20, 20, 150, 100);
 
       // 0~255のランダムな数値を返す
       const getRandomNumber = () => {
@@ -23,6 +21,32 @@
         let b = getRandomNumber();
         return `rgb(${r},${g},${b})`
       };
+
+      // (x, y)を起点に横width, 縦heightの四角形を定義するオブジェクト
+      // draw関数を呼び出すと四角形を描画する
+      var data = {
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        setData: (_x, _y, _width, _height) => {
+          this.x = _x;
+          this.y = _y;
+          this.width = _width;
+          this.height = _height;
+        },
+        draw: () => {
+          ctx.fillStyle = getRandomColor();
+          ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+      };
+
+      // ランダムな色の四角形を50個描写する
+      for (var i = 0; i < 50; i++) {
+        let obj1 = new Object(data);
+        obj1.setData(10*i, 10*i, 50, 50);
+        obj1.draw();
+      }
     </script>
   </body>
 </html>
