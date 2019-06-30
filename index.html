@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+    </canvas>
 
-  <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
-  </canvas>
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.fillStyle = "#FF0000";
+      ctx.fillRect(20, 20, 150, 100);
 
-  <script>
-  var c = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
-  ctx.fillStyle = "#FF0000";
-  ctx.fillRect(20, 20, 150, 100);
-  </script>
+      // 0~255のランダムな数値を返す
+      const getRandomNumber = () => {
+        let x = Math.random() * 255;
+        return Math.round(x);
+      };
 
+      // ランダムな色を返す
+      const getRandomColor = () => {
+        let r = getRandomNumber();
+        let g = getRandomNumber();
+        let b = getRandomNumber();
+        return `rgb(${r},${g},${b})`
+      };
+    </script>
   </body>
 </html>
