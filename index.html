@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
     </canvas>
 
     <script>
@@ -38,12 +38,18 @@
         }
       };
 
-      // ランダムな色の四角形を50個描写する
-      for (var i = 0; i < 50; i++) {
-        let obj1 = new Object(data);
-        obj1.setData(10*i, 10*i, 50, 50);
-        obj1.draw();
-      }
+      // 横50px, 縦50pxのランダムの色の四角形を(10 * 10)個描画する
+      const drawRect = (_num) => {
+        for (let i = 0; i < _num; i++) {
+          for (let j = 0; j < _num; j++) {
+            let obj1 = new Object(data);
+            obj1.setData(50*i, 50*j, 50, 50);
+            obj1.draw();
+          };
+        };
+      };
+
+      drawRect(10);
     </script>
   </body>
 </html>
