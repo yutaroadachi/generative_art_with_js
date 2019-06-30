@@ -9,10 +9,7 @@
       var ctx = c.getContext("2d");
 
       // 0~255のランダムな数値を返す
-      const getRandomNumber = () => {
-        let x = Math.random() * 255;
-        return Math.round(x);
-      };
+      const getRandomNumber = () => Math.round(Math.random() * 255);
 
       // ランダムな色を返す
       const getRandomColor = () => {
